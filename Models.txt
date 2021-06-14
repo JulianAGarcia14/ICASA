@@ -1,0 +1,40 @@
+Erdos Reyni:
+N vertices
+Connected with probability P
+Number of edges: n = P*N(N-1)/2
+
+Implement:
+Give a number of vertices
+Give a probability
+For every node:
+	Roll the dice that its connected to another node
+	If successful connect those nodes and add to edge count
+	Repeat for all other seperate node
+Afterwards compare edge count to result of equation to make sure
+network is built correctly
+-----------------------------------------------------
+Barbasi-Albert:
+Begins with an initial network of m0 nodes
+Nodes are added one at a time
+Each new node connected to m<=m0 nodes 
+Pi is the probability that the new node is connected to node i
+Ki is the degree of node i
+Equation:
+Pi = Ki / SUMOFALLNODES(Ki)
+
+Implement:
+Begin with set network (create an erdos reyni)
+Begin adding nodes up to a set number
+As each node is created, do the following:
+	Calculate chance its connected to another node
+	Roll that dice then connect if successful
+	Do this for all other pre-existing nodes
+--------------------------------------------------------
+Holme-kim preferential attachment
+Essentially Barbasi-Albert but with an added step
+	If an edge is added after rolling the dice
+	add one more edge from the new node to a random
+	neighbor of the node it just attached to.
+	If there arent any nodes to attach to, instead
+	roll the dice again for all pre-existing nodes
+	attaching to the new one.
